@@ -1,4 +1,9 @@
 import express from 'express';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const porta = 3000;
 const host = '0.0.0.0';
@@ -20,10 +25,12 @@ function processarCadastroUsuario(requisicao, resposta) {
         <html>
             <head>
                 <!-- Restante do cabeçalho -->
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
             </head>
             <body>
                 <h1>Usuários Cadastrados</h1>
-                <table class="table table-hover table-dark">
+                <table class="thead-dark">
                     <!-- Tabela de usuários cadastrados -->
                     <thead>
                         <tr>
@@ -34,6 +41,16 @@ function processarCadastroUsuario(requisicao, resposta) {
                         </tr>
                     </thead>
                     <tbody>`;
+
+                    listaUsuarios.forEach((usuario) => {
+                        conteudoResposta += `
+                            <tr>
+                                <td>${usuario.nome}</td>
+                                <td>${usuario.sobrenome}</td>
+                                <td>${usuario.email}</td>
+                                <td>${usuario.endereco}</td>
+                            </tr>`;
+                    });
     
                     conteudoResposta += `
 
@@ -51,7 +68,7 @@ const app = express();
 
 app.use(express.static('./paginas'));
 
-app.get('/cadastra', (requisicao, resposta) => {
+app.get('/', (requisicao, resposta) => {
     resposta.end(
         `
         <!DOCTYPE html>
@@ -67,13 +84,19 @@ app.get('/cadastra', (requisicao, resposta) => {
             <body>
                 <h1>Menu</h1>
                 <ul>
-                    <li><a href="/cadastra.html>Cadastrar Usuário</a></li>
+                    <li><a href="cadastra.html">Cadastrar Usuário</a></li>
                 <ul>
             </body>
         </html>
     `
     )
 });
+
+
+app.get('/cadastra.html', (requisicao, resposta) => {
+    resposta.sendFile(__dirname + '/paginas/cadastra.html');
+});
+
 
 app.get('/cadastra', processarCadastroUsuario);
 
