@@ -25,12 +25,65 @@ function processarCadastroUsuario(requisicao, resposta) {
         <html>
             <head>
                 <!-- Restante do cabeçalho -->
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+                <style>
+                    /* Estilos para a tabela de usuários cadastrados */
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin: 20px 0;
+                    }
 
+                    table, th, td {
+                        border: 1px solid black;
+                    }
+
+                    th{
+                        text-align:center;
+                        padding: 10px;
+                    }
+
+                    td {
+                        padding: 10px;
+                        text-align: left;
+                    }
+
+                    thead {
+                        background-color: #333;
+                        color: #fff;
+                    }
+
+                    /* Estilos para os botões */
+                    a {
+                        display: inline-block;
+                        padding: 10px 20px;
+                        margin: 10px;
+                        background-color: black;
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 5px;
+                        font-weight: bold;
+                        border:1px black;
+                    }
+
+                    a:hover {
+                        background-color: white;
+                        color:black;
+                    }
+
+                    h1{
+                        font-size: 24px;
+                        text-align: center;
+                    }
+
+                    body {
+                        background-color: #6bdb74;
+                    }
+                </style>
+            
             </head>
             <body>
                 <h1>Usuários Cadastrados</h1>
-                <table class="thead-dark">
+                <table>
                     <!-- Tabela de usuários cadastrados -->
                     <thead>
                         <tr>
@@ -55,10 +108,9 @@ function processarCadastroUsuario(requisicao, resposta) {
                     conteudoResposta += `
 
                 </table>
-                    <a href="/" class="badge badge-warning">Voltar ao Menu anterior</a>
-                    <a href="/cadastra.html" class="badge badge-warning">Continuar Cadastrando</a>
+                    <a href="/" >Voltar ao Menu anterior</a>
+                    <a href="/cadastra.html">Continuar Cadastrando</a>
             </body>
-            <script></script>
         </html>`;
     
             resposta.send(conteudoResposta);
@@ -78,14 +130,46 @@ app.get('/', (requisicao, resposta) => {
                 <meta http-equiv='X-UA-Compatible' content='IE=edge'>
                 <title>Formulário</title>
                 <meta name='viewport' content='width=device-width, initial-scale=1'>
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
                 <script src='main.js'></script>
+                <style>
+
+                    body{
+                        background-color: purple;
+                    }
+
+                    h1 {
+                        color: white; 
+                        font-size: 24px; 
+                        text-align: center;
+                    }
+
+                    ul {
+                        list-style-type: none; 
+                    }
+
+                    li {
+                        margin-bottom: 10px; 
+                    }
+
+                    a{
+                        text-decoration: none; 
+                        color: black; 
+                        font-weight: bold;
+                        text-align:center;
+                        border-radius: 5px;
+                        border: 1px white; 
+                        background-color: pink;
+                        padding: 8px;
+                    }
+
+                </style>
+                
             </head>
             <body>
                 <h1>Menu</h1>
                 <ul>
                     <li><a href="cadastra.html">Cadastrar Usuário</a></li>
-                <ul>
+                </ul>
             </body>
         </html>
     `
