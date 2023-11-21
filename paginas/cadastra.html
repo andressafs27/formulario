@@ -46,17 +46,21 @@
             <legend>
                 <h1>Cadastro de Usuário</h1>
             </legend>
-            <form id="formulario" action="/cadastra" method="POST" class="needs-validation" novalidate>
+            <form id="formulario" action="/cadastra" method="get" class="needs-validation" novalidate>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nome">Nome</label>
                         <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
-                        
+                        <div class="invalid-feedback">
+                            Por favor, informe o nome.
+                        </div>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="sobrenome">Sobrenome</label>
                         <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Sobrenome" required>
-                       
+                        <div class="invalid-feedback">
+                            Por favor, informe o sobrenome.
+                        </div>
                     </div>
                 </div>
 
@@ -64,19 +68,25 @@
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>
                         <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email" required>
-                        
+                        <div class="invalid-feedback">
+                            Por favor, informe um email válido.
+                        </div>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputPassword4">Senha</label>
                         <input type="password" class="form-control" id="inputPassword4" name="senha" placeholder="Senha" required>
-                        
+                        <div class="invalid-feedback">
+                            Por favor, informe a senha.
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="inputAddress">Endereço</label>
                     <input type="text" class="form-control" id="inputAddress" name="endereco" placeholder="Rua dos Bobos, nº 0" required>
-                    
+                    <div class="invalid-feedback">
+                        Por favor, informe o endereço.
+                    </div>
                 </div>
                 
 
